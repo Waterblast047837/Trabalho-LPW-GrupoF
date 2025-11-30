@@ -22,7 +22,7 @@ class Usuario(Base):
     criado_em = Column("criado_em", DateTime, server_default=func.now())
     seguindo_nomes = Column("seguindo_nomes", String(500))
     seguidores_nomes = Column("seguidores_nomes", String(500))
-    seguidores_contagem = Column("seguidores_contagem", Integer, server_default=func.now())
+    seguidores_contagem = Column("seguidores_contagem", Integer)
     
     def __init__(self, nome, email, senha, criado_em = func.now(), seguindo_nomes="", seguidores_nomes="", seguidores_contagem=0):
         self.nome = nome

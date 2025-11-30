@@ -5,9 +5,6 @@ class UsuarioSchema(BaseModel):
     nome: str
     email: EmailStr
     senha: str
-    seguindo_nome: Optional[list[str]] = []
-    seguidores_nomes: Optional[list[str]] = []
-    seguidores_contagem: Optional[int] = 0
 
     class Config:
         from_attributes = True

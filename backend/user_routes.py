@@ -9,7 +9,7 @@ user_router = APIRouter(prefix="/users", tags=["users"])
 
 @user_router.get("/")
 async def user_root():
-    return {"mensagem": "Você está na rota de usuários, seu filho da puta"}
+    return {"mensagem": "Você está na rota de usuários"}
 
 @user_router.post("/registrar")
 async def registrar_usuario(usuarioModelo: UsuarioSchema, sessao: Session = Depends(pegar_sessao)):
@@ -19,7 +19,7 @@ async def registrar_usuario(usuarioModelo: UsuarioSchema, sessao: Session = Depe
         raise HTTPException(status_code=400, detail="Email já cadastrado")
     else:
         senha_criptografada = bcrypt_context.hash(usuarioModelo.senha)
-        novo_usuario = Usuario(nome = usuarioModelo.nome, email = usuarioModelo.email, senha = senha_criptografada)
+        novo_usuario = Usuario(usuarioModelo.nome, usuarioModelo.email, senha_criptografada)
         sessao.add(novo_usuario)
         sessao.commit()
         return {"mensagem": "cadastro realizado com sucesso"}
