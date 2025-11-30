@@ -1,0 +1,7 @@
+desktop.ini
+
+Tabelas a serem adicionadas ao models.py:
+- users (id, username, email, hashed_password, created_at, follows_name, followers_names, followers_count)
+- posts (id, user_id, content, created_at)
+- comments (id, post_id, user_id, content, created_at)
+- opções para enquetes
