@@ -42,50 +42,6 @@ function renovarToken() {
     });
 }
 
-function fazerRequisicaoProtegida(url, metodo = 'GET', dados = null, callback) {
-    let token = localStorage.getItem('acess_token');
-    
-    if (!token) {
-        console.warn('Nenhum token encontrado');
-        window.location.href = '/login.html';
-        return;
-    }
-    
-    let config = {
-        type: metodo,
-        url: url,
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        contentType: 'application/json; charset=utf-8',
-        
-        success: function(resposta) {
-            console.log('Requisição protegida realizada com sucesso:', resposta);
-            if (callback) callback(resposta);
-        },
-        
-        error: function(erro) {
-            if (erro.status === 401) {
-                
-                console.warn('Token expirou (401), tentando renovar...');
-                renovarToken();
-                
-                setTimeout(() => {
-                    fazerRequisicaoProtegida(url, metodo, dados, callback);
-                }, 500);
-            } else {
-                console.error('Erro na requisição protegida:', erro);
-            }
-        }
-    };
-    
-    if (dados) {
-        config.data = JSON.stringify(dados);
-    }
-    
-    $.ajax(config);
-}
-
 formCadastro = $('#form-cadastro')
 formLogin = $('#form-login')
 
@@ -106,6 +62,8 @@ formCadastro.on('submit', function(f) {
 
         success: function(sucesso) {
             console.log(sucesso)
+
+             window.location.href = 'http://127.0.0.1:5500/Trabalho-LPW-GrupoF/index.html'
         },
 
         error: function(erro) {
