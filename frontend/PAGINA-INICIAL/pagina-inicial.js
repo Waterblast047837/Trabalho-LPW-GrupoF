@@ -4,7 +4,7 @@ $(document).ready(function() {
         if (!verificarLogin()) return; 
     }
 
-    const API_URL = 'https://jointed-judy-hypodermal.ngrok-free.dev';
+    const API_URL = 'https://jointed-judy-hypodermal.ngrok-free.dev/';
     const token = localStorage.getItem('acess_token');
 
   
