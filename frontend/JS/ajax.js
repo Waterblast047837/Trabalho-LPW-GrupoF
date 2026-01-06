@@ -20,7 +20,7 @@ function renovarToken() {
     
     $.ajax({
         type: 'GET',
-        url: 'http://127.0.0.1:5000/auth/refresh',
+        url: 'https://jointed-judy-hypodermal.ngrok-free.dev/auth/refresh',
         headers: {
             'Authorization': `Bearer ${refreshToken}`
         },
@@ -56,7 +56,7 @@ formCadastro.on('submit', function(f) {
 
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:5000/auth/registrar',
+        url: 'https://jointed-judy-hypodermal.ngrok-free.dev/auth/registrar',
         data: JSON.stringify(dados),
         contentType: 'application/json; charset=utf-8',
 
@@ -70,7 +70,7 @@ formCadastro.on('submit', function(f) {
 
             $.ajax({
                 type: 'POST',
-                url: 'http://127.0.0.1:5000/auth/login',
+                url: 'https://jointed-judy-hypodermal.ngrok-free.dev/auth/login',
                 data: JSON.stringify(dados),
                 contentType: 'application/json; charset=utf-8',
 
@@ -103,7 +103,7 @@ formLogin.on('submit', function(f) {
 
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:5000/auth/login',
+        url: 'https://jointed-judy-hypodermal.ngrok-free.dev/auth/login',
         data: JSON.stringify(dados),
         contentType: 'application/json; charset=utf-8',
 
