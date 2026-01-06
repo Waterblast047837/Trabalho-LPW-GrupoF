@@ -3,7 +3,7 @@ function verificarLogin() {
     
     if (!token) {
         console.warn('Usuário não autenticado, redirecionando para login');
-        window.location.href = 'http://127.0.0.1:5500/Trabalho-LPW-GrupoF/pagina-registro.html'; 
+        window.location.href = 'http://127.0.0.1:5500/pagina-registro.html'; 
         return false;
     }
     return true;
