@@ -16,6 +16,7 @@ $(document).ready(function() {
                 'Authorization': `Bearer ${token}`
             },
             success: function(posts) {
+                console.log('carregarPosts success', posts);
                 $('#feed').empty();
                 
                 if (posts.length === 0) {
@@ -76,7 +77,8 @@ $(document).ready(function() {
             type: 'POST',
             url: `${API_URL}/social/posts/criar`, //
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'ngrok-skip-browser-warning': 'true'
             },
             contentType: 'application/json',
             data: JSON.stringify(dadosPost),
@@ -104,7 +106,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: `${API_URL}/social/posts/${id}/curtir`, //
-            headers: { 'Authorization': `Bearer ${token}` },
+            headers: { 'Authorization': `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' },
             success: function() {
                 carregarPosts(); 
             },
@@ -135,7 +137,7 @@ $(document).ready(function() {
             $.ajax({
                 type: 'POST',
                 url: `${API_URL}/social/posts/${id}/responder`, 
-                headers: { 'Authorization': `Bearer ${token}` },
+                headers: { 'Authorization': `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' },
                 contentType: 'application/json',
                 data: JSON.stringify(dadosResposta), 
                 success: function(response) {
